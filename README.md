@@ -9,6 +9,11 @@ The Freecam its a plugin for Minecraft Spigot 1.8 that allows user to enter a "f
 
 Also the players have a limit distance that they can be from the zombie, if they exceed it, they will be teleported back.
 This distance is defined by a permission, lets say the player has the permission freecam.100, then the max distance is 100 blocks, if its freecam.200 its 200 and so on.
+
+# Language
+
+Currently the plugin messages are in Portuguese, maybe in the future i'll add configurable messages.
+
 # Installation
 
     1. Download the latest version of the Freecam plugin.
@@ -58,8 +63,4 @@ public class MyPlugin extends JavaPlugin implements Listener {
         player.sendMessage("Freecam mode is not allowed!");
     }
 }
-
-# Language
-
-Currently the plugin messages are in Portuguese, maybe in the future i'll add configurable messages.
 
