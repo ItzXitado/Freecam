@@ -1,0 +1,7 @@
+name: freecam
+version: 1.0
+main: io.github.xitadoo.freecam.Main
+author: [ItzXitadoo]
+description: A plugin that allows users to acess a freecam-like state
+commands:
+  freecam:

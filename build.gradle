@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id("maven-publish")
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+group = 'io.github.xitadoo.freecam'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+
+    maven { url = 'https://jitpack.io/' }
+    maven { url = 'https://repo.bg-software.com/repository/nms/' }
+    maven { url = 'https://repo.codemc.org/repository/maven-public/' }
+    maven {url = 'https://oss.sonatype.org/content/repositories/snapshots'}
+}
+
+dependencies {
+    implementation 'org.jetbrains:annotations:20.1.0'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+test {
+    useJUnitPlatform()
+}
+
+shadowJar {
+    archiveFileName.set("Freecam.jar")
+    destinationDirectory.set(file(System.getenv("PLUGIN_DIR") ?: "C:\\Users\\itzde\\Desktop\\F. Hexe\\plugins"))
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}
