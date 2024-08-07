@@ -59,5 +59,7 @@ public class MyPlugin extends JavaPlugin implements Listener {
     }
 }
 
+# Language
 
+Currently the plugin messages are in Portuguese, maybe in the future i'll add configurable messages.
 
